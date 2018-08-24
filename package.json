@@ -1,9 +1,9 @@
 {
   "name": "elm-grid",
   "scripts": {
-    "test": "elm-test"
+    "test": "elm-test 'tests/**/*.elm'"
   },
   "devDependencies": {
-    "elm-test": "^0.18.12"
+    "elm-test": "^0.19.0-beta4"
   }
 }

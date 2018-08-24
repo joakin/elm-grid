@@ -1,9 +1,9 @@
-module GridTests exposing (..)
+module GridTests exposing (suite)
 
 import Expect exposing (Expectation)
 import Fuzz exposing (Fuzzer, int, list, string)
-import Test exposing (..)
 import Grid
+import Test exposing (..)
 
 
 suite : Test
@@ -28,9 +28,9 @@ suite =
                         coords ( x, y ) res =
                             ( x, y ) :: res
                     in
-                        Grid.fold2d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold2d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Rows number smaller than 1 defaults to 0" <|
                 \_ ->
                     let
@@ -43,9 +43,9 @@ suite =
                         coords ( x, y ) res =
                             ( x, y ) :: res
                     in
-                        Grid.fold2d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold2d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Rows number as 0 works fine" <|
                 \_ ->
                     let
@@ -58,9 +58,9 @@ suite =
                         coords ( x, y ) res =
                             ( x, y ) :: res
                     in
-                        Grid.fold2d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold2d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Cols number smaller than 1 defaults to 0" <|
                 \_ ->
                     let
@@ -73,9 +73,9 @@ suite =
                         coords ( x, y ) res =
                             ( x, y ) :: res
                     in
-                        Grid.fold2d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold2d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Cols number as 0 works fine" <|
                 \_ ->
                     let
@@ -88,9 +88,9 @@ suite =
                         coords ( x, y ) res =
                             ( x, y ) :: res
                     in
-                        Grid.fold2d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold2d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Rows and Cols negative works fine" <|
                 \_ ->
                     let
@@ -103,9 +103,9 @@ suite =
                         coords ( x, y ) res =
                             ( x, y ) :: res
                     in
-                        Grid.fold2d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold2d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             ]
         , describe "foldr2d"
             [ test "Folds right over a positive number of rows and columns" <|
@@ -123,8 +123,8 @@ suite =
                             , ( 1, 2 )
                             ]
                     in
-                        Grid.foldr2d dimensions (::) []
-                            |> Expect.equal result
+                    Grid.foldr2d dimensions (::) []
+                        |> Expect.equal result
             ]
         , describe "fold3d"
             [ test "Folds over a positive number of rows, columns and depth" <|
@@ -151,9 +151,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Rows number smaller than 1 defaults to 0" <|
                 \_ ->
                     let
@@ -166,9 +166,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Rows number as 0 works fine" <|
                 \_ ->
                     let
@@ -181,9 +181,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Cols number smaller than 1 defaults to 0" <|
                 \_ ->
                     let
@@ -196,9 +196,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Cols number as 0 works fine" <|
                 \_ ->
                     let
@@ -211,9 +211,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Depth number smaller than 1 defaults to 0" <|
                 \_ ->
                     let
@@ -226,9 +226,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             , test "Depth number as 0 works fine" <|
                 \_ ->
                     let
@@ -241,9 +241,9 @@ suite =
                         coords ( x, y, z ) res =
                             ( x, y, z ) :: res
                     in
-                        Grid.fold3d dimensions coords []
-                            |> List.reverse
-                            |> Expect.equal result
+                    Grid.fold3d dimensions coords []
+                        |> List.reverse
+                        |> Expect.equal result
             ]
         , describe "foldr3d"
             [ test "Folds right over a positive number of rows, columns and depth" <|
@@ -267,7 +267,7 @@ suite =
                             , ( 1, 2, 1 )
                             ]
                     in
-                        Grid.foldr3d dimensions (::) []
-                            |> Expect.equal result
+                    Grid.foldr3d dimensions (::) []
+                        |> Expect.equal result
             ]
         ]

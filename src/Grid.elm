@@ -1,4 +1,7 @@
-module Grid exposing (fold2d, foldr2d, fold3d, foldr3d)
+module Grid exposing
+    ( fold2d, foldr2d
+    , fold3d, foldr3d
+    )
 
 {-| Functions to operate on a set of coordinates and do something with them.
 
@@ -46,12 +49,14 @@ fold2d { rows, cols } fn initial =
         iter x y res =
             if y >= rows then
                 res
+
             else if x >= cols then
                 iter 0 (y + 1) res
+
             else
                 iter (x + 1) y (fn ( x, y ) res)
     in
-        iter 0 0 initial
+    iter 0 0 initial
 
 
 {-| Fold over a 2 dimensional grid from the right. Starts at the end of the
@@ -74,7 +79,9 @@ foldr2d :
     -> result
     -> result
 foldr2d ({ rows, cols } as dimensions) fn initial =
-    fold2d dimensions (\( x, y ) result -> fn ( cols - x - 1, rows - y - 1 ) result) initial
+    fold2d dimensions
+        (\( x, y ) result -> fn ( cols - x - 1, rows - y - 1 ) result)
+        initial
 
 
 {-| Fold over a 3 dimensional grid of coordinates
@@ -105,14 +112,17 @@ fold3d { rows, cols, depth } fn initial =
         iter x y z res =
             if z >= depth then
                 res
+
             else if y >= rows then
                 iter 0 0 (z + 1) res
+
             else if x >= cols then
                 iter 0 (y + 1) z res
+
             else
                 iter (x + 1) y z (fn ( x, y, z ) res)
     in
-        iter 0 0 0 initial
+    iter 0 0 0 initial
 
 
 {-| Fold over a 3 dimensional grid of coordinates from the right. Starts at the
@@ -139,4 +149,8 @@ foldr3d :
     -> result
     -> result
 foldr3d ({ rows, cols, depth } as dimensions) fn initial =
-    fold3d dimensions (\( x, y, z ) result -> fn ( cols - x - 1, rows - y - 1, depth - z - 1 ) result) initial
+    fold3d dimensions
+        (\( x, y, z ) result ->
+            fn ( cols - x - 1, rows - y - 1, depth - z - 1 ) result
+        )
+        initial
